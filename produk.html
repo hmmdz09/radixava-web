@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Produk — Radixava Tri-Crunch</title>
+  <meta name="description" content="Varian rasa keripik Radixava Tri-Crunch berbahan onggok: Singkong Crunch, Purple Savory, Golden Herb, Brown Aren, dan Seaweed Umami.">
+  <meta name="theme-color" content="#1E4A22">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,100,1;1,9..144,500..800,100,1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="produk">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Produk</span></nav>
+      <span class="eyebrow">Tri-Crunch Series</span>
+      <h1>Pilih <em class="hl">kriuk favoritmu</em></h1>
+      <p class="lead">Keripik segitiga tipis dari tepung onggok. Setiap varian punya bahan khas yang memberi warna dan rasa alami — tanpa pewarna buatan.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tabs" id="filter" role="tablist" aria-label="Filter rasa">
+        <button type="button" class="tab is-active" data-f="all">Semua</button>
+        <button type="button" class="tab" data-f="gurih">Gurih</button>
+        <button type="button" class="tab" data-f="manis">Manis</button>
+        <button type="button" class="tab" data-f="soon">Segera hadir</button>
+      </div>
+      <div class="products" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Info Produk</span><h2>Yang perlu kamu tahu</h2></div></div>
+      <div class="grid grid-2">
+        <div class="label-sheet reveal">
+          <table>
+            <tr><th>Nama produk</th><td>Keripik Tri-Crunch Radixava</td></tr>
+            <tr><th>Bahan utama</th><td>Tepung onggok (ampas singkong), tepung terigu, tepung tapioka</td></tr>
+            <tr><th>Berat bersih</th><td>100 g / kemasan standing pouch</td></tr>
+            <tr><th>Harga</th><td>Rp8.000 / kemasan</td></tr>
+            <tr><th>Alergen</th><td>Mengandung gluten (terigu) dan telur</td></tr>
+            <tr><th>Penyimpanan</th><td>Simpan di tempat sejuk dan kering, hindari sinar matahari langsung</td></tr>
+            <tr><th>Nilai gizi</th><td>Dalam proses uji laboratorium</td></tr>
+          </table>
+        </div>
+        <div class="reveal" data-d="1">
+          <div class="faq">
+            <details open><summary>Aman nggak sih makan olahan ampas singkong?</summary><p>Onggok kami melewati sortasi, pengepresan, dan pengeringan terkontrol. Bahan dan produk juga direncanakan melalui uji laboratorium kadar HCN (sianogenik) dan mikrobiologi.</p></details>
+            <details><summary>Kenapa bentuknya segitiga?</summary><p>Bentuk segitiga tipis jadi identitas Tri-Crunch: renyah merata, gampang dicocol, dan beda dari keripik biasa.</p></details>
+            <details><summary>Ada QR di belakang kemasan, isinya apa?</summary><p>QR mengarah ke halaman khusus tiap varian: fun fact bahan, info produk, dan form untuk berbagi pengalamanmu.</p></details>
+            <details><summary>Bisa beli grosir untuk dijual lagi?</summary><p>Bisa! Cek halaman <a class="link-arrow" href="kerja-sama.html#reseller">Kerja Sama</a> untuk harga reseller & titip jual.</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script>
+window.RXpage = (window.RXpage || []).concat(function (h) {
+  var grid = h.$("#grid");
+  var sweet = ["brown-aren"];
+  function render(f) {
+    var list = h.RX.variants.filter(function (v) {
+      if (f === "all") return true;
+      if (f === "soon") return v.soon;
+      if (f === "manis") return sweet.indexOf(v.slug) > -1;
+      if (f === "gurih") return sweet.indexOf(v.slug) < 0;
+    });
+    grid.innerHTML = list.map(h.productCard).join("");
+    h.$$(".reveal", grid).forEach(function (r) { r.classList.add("in"); });
+  }
+  render("all");
+  h.$("#filter").addEventListener("click", function (e) {
+    var b = e.target.closest(".tab"); if (!b) return;
+    h.$$(".tab", this).forEach(function (t) { t.classList.toggle("is-active", t === b); });
+    render(b.dataset.f);
+  });
+});
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

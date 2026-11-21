@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Varian — Radixava Tri-Crunch</title>
+  <meta name="description" content="Detail varian keripik Radixava Tri-Crunch: komposisi, fun fact bahan, dan cerita konsumen.">
+  <meta name="theme-color" content="#1E4A22">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,100,1;1,9..144,500..800,100,1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="produk">
+<main id="main" class="pd">
+  <section class="pd-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb" style="display:flex;gap:8px;font-size:.85rem;color:var(--muted);margin-bottom:22px"><a href="index.html">Beranda</a><span>/</span><a href="produk.html">Produk</a><span>/</span><span id="crumb">Varian</span></nav>
+      <div class="pd-grid">
+        <div class="pd-gallery">
+          <div class="pd-main"><img id="pdImg" src="" alt="" width="1100" height="1650"></div>
+          <div class="pd-thumbs" id="pdThumbs"></div>
+        </div>
+        <div>
+          <span class="pd-short" id="pdShort"></span>
+          <h1 id="pdName"></h1>
+          <p class="pd-tagline" id="pdTag"></p>
+          <p class="lead" id="pdDesc"></p>
+          <div class="taste" id="pdTaste"></div>
+          <div class="meta">
+            <div><b>100 g</b><span>Berat bersih</span></div>
+            <div><b>Rp8.000</b><span>Per kemasan</span></div>
+            <div><b>10–30%</b><span>Tepung onggok</span></div>
+          </div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn" id="pdBuy" data-buy="">Pesan Sekarang</a>
+            <a class="btn btn--ghost" id="pdStory" href="cerita.html#tulis">Ceritakan Rasanya</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="ex-q reveal" style="max-width:860px;margin:0 auto 40px">
+        <span class="hand" id="pdQ"></span>
+        <p id="pdA"></p>
+      </div>
+      <div class="center reveal" style="margin-bottom:28px"><span class="eyebrow" id="pdFactEyebrow">Fun Fact</span><h2 id="pdFactTitle">Kenalan sama bahannya</h2></div>
+      <div class="facts" id="pdFacts"></div>
+      <div class="facts" style="margin-top:20px" id="pdOnggok"></div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container grid grid-2" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Info Kemasan</span>
+        <h2>Komposisi & penyimpanan</h2>
+        <div class="label-sheet">
+          <table>
+            <tr><th>Komposisi</th><td id="pdComp"></td></tr>
+            <tr><th>Alergen</th><td id="pdAllergen"></td></tr>
+            <tr><th>Penyimpanan</th><td>Simpan di tempat sejuk dan kering, serta hindari paparan sinar matahari langsung.</td></tr>
+            <tr><th>Nilai gizi (per 100 g)</th><td>Dalam proses uji laboratorium</td></tr>
+            <tr><th>Halal</th><td>Dalam proses sertifikasi — <a class="link-arrow" href="legalitas.html">cek legalitas</a></td></tr>
+            <tr><th>Diproduksi oleh</th><td>Tim Radixava, Bandung, Indonesia</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="reveal" data-d="1">
+        <span class="eyebrow">Cerita Konsumen</span>
+        <h2>Kata mereka soal varian ini</h2>
+        <div class="wall" id="pdWall" style="columns:1"></div>
+        <a class="link-arrow" href="cerita.html#dinding">Lihat semua cerita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <h2 style="font-size:1.6rem">Varian lainnya</h2>
+      <div class="products" id="pdOthers"></div>
+    </div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/stories.js"></script>
+<script>
+window.RXpage = (window.RXpage || []).concat(function (h) {
+  var q = new URLSearchParams(location.search).get("v");
+  var v = h.vBySlug(q) || h.RX.variants[0];
+  var IMG = "assets/img/";
+  document.title = v.name + " — Radixava Tri-Crunch";
+  var main = h.$("#main"); main.setAttribute("style", h.vStyle(v));
+  h.$("#crumb").textContent = v.name;
+  h.$("#pdShort").textContent = v.short + (v.soon ? " • Segera hadir" : "");
+  h.$("#pdName").textContent = v.name;
+  h.$("#pdTag").textContent = v.tagline;
+  h.$("#pdDesc").textContent = v.desc;
+  h.$("#pdTaste").innerHTML = v.taste.map(function (t) { return "<span>" + h.esc(t) + "</span>"; }).join("");
+  h.$("#pdQ").textContent = v.question; h.$("#pdA").textContent = v.answer;
+  h.$("#pdFactEyebrow").textContent = "Fun Fact • " + v.hero;
+  h.$("#pdFactTitle").textContent = "Kenalan sama " + v.hero.toLowerCase() + " & onggok";
+  h.$("#pdComp").textContent = v.composition; h.$("#pdAllergen").textContent = v.allergen;
+  h.$("#pdStory").href = "cerita.html?v=" + v.slug + "#tulis";
+  h.$("#pdBuy").dataset.buy = v.slug;
+
+  var imgs = v.front === v.back ? [v.back] : [v.front, v.back];
+  var img = h.$("#pdImg");
+  function setImg(n) { img.src = IMG + n + "@2x.webp"; img.alt = "Kemasan Radixava " + v.name + (n.indexOf("back") === 0 ? " (belakang)" : " (depan)"); }
+  setImg(imgs[0]);
+  h.$("#pdThumbs").innerHTML = imgs.length > 1 ? imgs.map(function (n, i) {
+    return '<button type="button" aria-pressed="' + (i === 0) + '" data-n="' + n + '" aria-label="' + (i ? "Tampak belakang" : "Tampak depan") + '"><img src="' + IMG + n + '.webp" alt="" width="64" height="96"></button>';
+  }).join("") : "";
+  h.$("#pdThumbs").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    h.$$("button", this).forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    setImg(b.dataset.n);
+  });
+
+  h.$("#pdFacts").innerHTML = v.facts.map(function (f, i) { return h.factCard(f, v.color, "Fun fact", i); }).join("");
+  h.$("#pdOnggok").innerHTML = h.RX.onggok.facts.slice(0, 3).map(function (f, i) { return h.factCard(f, "#2F6B2F", "Fakta Onggok", i); }).join("");
+  h.$("#pdOthers").innerHTML = h.RX.variants.filter(function (x) { return x.slug !== v.slug; }).map(h.productCard).join("");
+
+  RXStories.list().then(function (all) {
+    var mine = all.filter(function (s) { return s.variant === v.slug; }).slice(0, 2);
+    h.$("#pdWall").innerHTML = mine.length ? mine.map(RXStories.card).join("") : '<div class="empty" style="margin-bottom:20px">Belum ada cerita untuk ' + h.esc(v.name) + '. <a class="link-arrow" href="cerita.html?v=' + v.slug + '#tulis">Jadi yang pertama!</a></div>';
+  });
+});
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

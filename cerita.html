@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cerita Konsumen — Radixava</title>
+  <meta name="description" content="Ruang ekspresi konsumen Radixava. Bagikan pengalamanmu setelah mencoba keripik Tri-Crunch dari onggok.">
+  <meta name="theme-color" content="#1E4A22">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,100,1;1,9..144,500..800,100,1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="cerita">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Cerita Konsumen</span></nav>
+      <span class="eyebrow">Ruang Ekspresi</span>
+      <h1>Ceritamu, <em class="hl">bumbu rahasia</em> kami.</h1>
+      <p class="lead">Udah ngemil Radixava? Bagikan rasa favorit, tingkat kriuk, momen ngemil, dan saranmu. Setiap cerita jadi bahan kami untuk terus berkembang.</p>
+      <div class="hero-actions"><a class="btn" href="#tulis">Tulis Ceritaku</a><a class="btn btn--ghost" href="#dinding">Lihat Dinding Cerita</a></div>
+    </div>
+  </section>
+
+  <!-- INSIGHT -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Suara Konsumen</span><h2>Kata mereka, dalam angka</h2><p class="muted" id="statsNote">Data dihitung otomatis dari cerita yang masuk.</p></div>
+      </div>
+      <div class="story-stats">
+        <div class="stat"><b id="stTotal">0</b><span>Cerita masuk</span></div>
+        <div class="stat"><b id="stAvg">0</b><span>Rata-rata rating</span><div class="bar"><i id="barAvg"></i></div></div>
+        <div class="stat"><b id="stAgain">0%</b><span>Mau beli lagi</span><div class="bar"><i id="barAgain"></i></div></div>
+        <div class="stat"><b id="stFav">—</b><span>Varian terfavorit</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="section section--cream" id="tulis">
+    <div class="container split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Tulis Ceritamu</span>
+        <h2>1 menit aja, <em class="hl">3 langkah</em></h2>
+        <p class="lead">Jawabanmu membantu kami menentukan rasa baru, ukuran kemasan, harga, dan tempat jual berikutnya.</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>Langkah 1</b> — Varian yang kamu coba & di mana belinya</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>Langkah 2</b> — Rating rasa, kriuk, harga & mood</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>Langkah 3</b> — Cerita, foto (opsional) & saran</span></li>
+        </ul>
+        <div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Kami hanya menampilkan nama panggilan & kota. Jangan cantumkan nomor HP atau data pribadi di dalam cerita.</span></div>
+      </div>
+
+      <form class="form-card" id="storyForm" novalidate>
+        <div class="stepper" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <p class="sr-only" id="stepLive" aria-live="polite">Langkah 1 dari 3</p>
+
+        <!-- STEP 1 -->
+        <fieldset class="step is-active" data-step="1" style="border:0;padding:0;margin:0">
+          <legend class="sr-only">Langkah 1</legend>
+          <h3>Kamu coba varian apa?</h3>
+          <p class="muted">Pilih satu yang paling ingin kamu ceritakan.</p>
+          <div class="field"><div class="choice-grid" id="variantChoices" role="radiogroup" aria-label="Varian"></div><span class="err" id="errVariant">Pilih salah satu varian dulu ya.</span></div>
+          <div class="row-2">
+            <div class="field"><label for="fName">Nama panggilan</label><input class="input" id="fName" name="name" maxlength="40" placeholder="cth. Dinda" autocomplete="nickname"></div>
+            <div class="field"><label for="fCity">Kota <span class="opt">(opsional)</span></label><input class="input" id="fCity" name="city" maxlength="40" placeholder="cth. Bandung"></div>
+          </div>
+          <div class="field"><label for="fWhere">Beli di mana?</label>
+            <select class="select" id="fWhere" name="where">
+              <option value="">Pilih…</option><option>Bazar kampus</option><option>Kantin / koperasi / kafe</option><option>Reseller / teman</option><option>Marketplace (Shopee/Tokopedia)</option><option>Instagram / TikTok / WhatsApp</option><option>Event / pop-up store</option><option>Dapat sampel gratis</option><option>Lainnya</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- STEP 2 -->
+        <fieldset class="step" data-step="2" style="border:0;padding:0;margin:0">
+          <legend class="sr-only">Langkah 2</legend>
+          <h3>Gimana rasanya?</h3>
+          <p class="muted">Jujur aja, kami butuh masukan apa adanya.</p>
+          <div class="field"><span class="label" id="lblRating">Rating keseluruhan</span>
+            <div class="rating" role="radiogroup" aria-labelledby="lblRating">
+              <input type="radio" name="rating" id="r5" value="5"><label for="r5" title="5 — Juara!">★</label>
+              <input type="radio" name="rating" id="r4" value="4"><label for="r4" title="4 — Enak">★</label>
+              <input type="radio" name="rating" id="r3" value="3"><label for="r3" title="3 — Lumayan">★</label>
+              <input type="radio" name="rating" id="r2" value="2"><label for="r2" title="2 — Kurang">★</label>
+              <input type="radio" name="rating" id="r1" value="1"><label for="r1" title="1 — Belum cocok">★</label>
+            </div>
+            <span class="err" id="errRating">Kasih bintang dulu ya ⭐</span>
+          </div>
+          <div class="field"><label for="fCrunch">Tingkat kriuk: <b id="crunchVal">4</b>/5</label>
+            <input class="range" type="range" id="fCrunch" name="crunch" min="1" max="5" value="4">
+            <div class="range-labels"><span>Kurang renyah</span><span>Super kriuk!</span></div>
+          </div>
+          <div class="field"><span class="label">Harga Rp8.000 / 100 g menurutmu…</span>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="price" value="murah"><span>Murah</span></label>
+              <label class="pill"><input type="radio" name="price" value="pas" checked><span>Pas</span></label>
+              <label class="pill"><input type="radio" name="price" value="mahal"><span>Agak mahal</span></label>
+            </div>
+          </div>
+          <div class="field"><span class="label">Bakal beli lagi?</span>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="again" value="ya" checked><span>Pasti!</span></label>
+              <label class="pill"><input type="radio" name="again" value="mungkin"><span>Mungkin</span></label>
+              <label class="pill"><input type="radio" name="again" value="tidak"><span>Belum</span></label>
+            </div>
+          </div>
+          <div class="field"><span class="label">Mood setelah ngemil</span>
+            <div class="pills moods">
+              <label class="pill"><input type="radio" name="mood" value="🤩" checked><span aria-label="Takjub">🤩</span></label>
+              <label class="pill"><input type="radio" name="mood" value="😋"><span aria-label="Nagih">😋</span></label>
+              <label class="pill"><input type="radio" name="mood" value="🥰"><span aria-label="Suka">🥰</span></label>
+              <label class="pill"><input type="radio" name="mood" value="😌"><span aria-label="Santai">😌</span></label>
+              <label class="pill"><input type="radio" name="mood" value="🤔"><span aria-label="Biasa">🤔</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- STEP 3 -->
+        <fieldset class="step" data-step="3" style="border:0;padding:0;margin:0">
+          <legend class="sr-only">Langkah 3</legend>
+          <h3>Ceritain pengalamanmu</h3>
+          <p class="muted">Momen ngemil, kesan pertama, atau reaksi temanmu waktu tahu ini dari ampas singkong 😄</p>
+          <div class="field"><span class="label">Yang paling kamu suka <span class="opt">(boleh lebih dari satu)</span></span>
+            <div class="pills" id="tagPills"></div>
+          </div>
+          <div class="field"><label for="fText">Ceritamu</label>
+            <textarea class="textarea" id="fText" name="text" maxlength="500" placeholder="Pertama kali coba Purple Savory pas nugas bareng…"></textarea>
+            <span class="muted" style="font-size:.78rem;text-align:right" id="textCount">0/500</span>
+            <span class="err" id="errText">Tulis minimal 10 karakter ya.</span>
+          </div>
+          <div class="field"><span class="label">Foto momen ngemil <span class="opt">(opsional)</span></span>
+            <label class="upload" for="fPhoto">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <span id="photoLabel"><b>Pilih foto</b><br><small class="muted">JPG/PNG, otomatis dikompres</small></span>
+              <img id="photoPreview" alt="" hidden>
+            </label>
+            <input type="file" id="fPhoto" accept="image/*" class="sr-only">
+          </div>
+          <div class="field"><label for="fSuggest">Saran untuk Radixava <span class="opt">(rasa baru, ukuran, tempat jual…)</span></label>
+            <input class="input" id="fSuggest" name="suggest" maxlength="200" placeholder="cth. Ada rasa pedas balado dong!">
+          </div>
+          <label class="check"><input type="checkbox" id="fConsent" checked> <span>Saya setuju ceritaku ditampilkan di Dinding Cerita Radixava.</span></label>
+        </fieldset>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn--ghost" id="btnPrev" hidden>Kembali</button>
+          <button type="button" class="btn" id="btnNext" style="margin-left:auto">Lanjut</button>
+          <button type="submit" class="btn" id="btnSubmit" hidden style="margin-left:auto">Kirim Cerita 🎉</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- WALL -->
+  <section class="section" id="dinding">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Dinding Cerita</span><h2>Dari sobat Radixava</h2></div>
+        <button type="button" class="btn btn--ghost btn--sm" id="btnExport" hidden title="Unduh data cerita (CSV) untuk analisis tim">Unduh data (CSV)</button>
+      </div>
+      <div class="tabs" id="wallFilter" role="tablist" aria-label="Filter varian"></div>
+      <div class="wall" id="wall"></div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="thanks" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+  <div class="modal-box">
+    <div class="big-emoji">🎉</div>
+    <h2 id="thanksTitle">Makasih udah cerita!</h2>
+    <p class="muted" id="thanksText">Ceritamu sudah masuk ke Dinding Cerita.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <button type="button" class="btn" id="btnCloseThanks">Lihat Dinding Cerita</button>
+      <a class="btn btn--ghost" href="onggok.html#funfact">Baca Fun Fact</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/stories.js"></script>
+<script>
+window.RXpage = (window.RXpage || []).concat(function (h) {
+  var $ = h.$, $$ = h.$$, RX = h.RX, esc = h.esc;
+  var form = $("#storyForm"), step = 1, photo = "", filter = "all";
+  var params = new URLSearchParams(location.search);
+
+  // pilihan varian
+  $("#variantChoices").innerHTML = RX.variants.map(function (v) {
+    return '<label class="choice" style="--c:' + v.color + '"><input type="radio" name="variant" value="' + v.slug + '"><span><i class="dot"></i>' + esc(v.name) + '</span></label>';
+  }).join("");
+  var pre = params.get("v");
+  if (pre && h.vBySlug(pre)) { var r = form.querySelector('input[name=variant][value="' + pre + '"]'); if (r) r.checked = true; }
+
+  ["Renyah", "Gurih pas", "Manis", "Aromanya enak", "Warna cantik", "Unik", "Ramah lingkungan", "Cocok buat ngopi", "Kemasan lucu", "Harga bersahabat"].forEach(function (t) {
+    $("#tagPills").insertAdjacentHTML("beforeend", '<label class="pill"><input type="checkbox" name="tags" value="' + t + '"><span>' + t + '</span></label>');
+  });
+
+  var crunch = $("#fCrunch");
+  crunch.addEventListener("input", function () { $("#crunchVal").textContent = crunch.value; });
+  $("#fText").addEventListener("input", function (e) { $("#textCount").textContent = e.target.value.length + "/500"; });
+
+  $("#fPhoto").addEventListener("change", function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    RXStories.compress(f).then(function (d) {
+      photo = d; var p = $("#photoPreview"); p.src = d; p.hidden = false;
+      $("#photoLabel").innerHTML = "<b>Foto siap ✓</b><br><small class='muted'>Ketuk untuk ganti</small>";
+    }).catch(function () { h.toast("File harus berupa gambar ya."); });
+  });
+
+  function val(name) { var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ""; }
+  function err(id, on) { $("#" + id).classList.toggle("show", on); }
+  function validate(s) {
+    if (s === 1) { var ok = !!val("variant"); err("errVariant", !ok); return ok; }
+    if (s === 2) { var ok2 = !!val("rating"); err("errRating", !ok2); return ok2; }
+    if (s === 3) { var ok3 = $("#fText").value.trim().length >= 10; err("errText", !ok3); return ok3; }
+    return true;
+  }
+  function go(s) {
+    step = s;
+    $$(".step", form).forEach(function (el) { el.classList.toggle("is-active", +el.dataset.step === s); });
+    $$(".stepper i", form).forEach(function (el, i) { el.classList.toggle("on", i < s); });
+    $("#btnPrev").hidden = s === 1; $("#btnNext").hidden = s === 3; $("#btnSubmit").hidden = s !== 3;
+    $("#stepLive").textContent = "Langkah " + s + " dari 3";
+    var first = form.querySelector('.step.is-active h3'); if (first) { first.setAttribute("tabindex", "-1"); first.focus({ preventScroll: true }); }
+    var top = form.getBoundingClientRect().top + window.scrollY - 90;
+    if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
+  }
+  $("#btnNext").addEventListener("click", function () { if (validate(step)) go(step + 1); });
+  $("#btnPrev").addEventListener("click", function () { go(step - 1); });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validate(3)) return;
+    var btn = $("#btnSubmit"); btn.disabled = true; btn.textContent = "Mengirim…";
+    var story = {
+      name: $("#fName").value.trim() || "Sobat Radixava",
+      city: $("#fCity").value.trim(),
+      variant: val("variant"), where: $("#fWhere").value,
+      rating: +val("rating"), crunch: +crunch.value, price: val("price"), again: val("again"), mood: val("mood"),
+      tags: $$('input[name=tags]:checked', form).map(function (x) { return x.value; }),
+      text: $("#fText").value.trim(), suggest: $("#fSuggest").value.trim(),
+      photo: photo, consent: $("#fConsent").checked
+    };
+    RXStories.add(story).then(function (res) {
+      $("#thanksText").textContent = res.remote ? "Ceritamu sudah terkirim ke tim Radixava. Terima kasih sudah ikut membangun camilan sirkular!" : "Ceritamu tersimpan dan tampil di Dinding Cerita (perangkat ini). Terima kasih!";
+      openThanks();
+      form.reset(); photo = ""; $("#photoPreview").hidden = true; $("#photoLabel").innerHTML = "<b>Pilih foto</b><br><small class='muted'>JPG/PNG, otomatis dikompres</small>";
+      $("#crunchVal").textContent = "4"; $("#textCount").textContent = "0/500";
+      go(1); render();
+    }).finally(function () { btn.disabled = false; btn.textContent = "Kirim Cerita 🎉"; });
+  });
+
+  var modal = $("#thanks"), lastFocus;
+  function openThanks() { lastFocus = document.activeElement; modal.classList.add("open"); $("#btnCloseThanks").focus(); }
+  function closeThanks() { modal.classList.remove("open"); document.getElementById("dinding").scrollIntoView({ behavior: "smooth" }); if (lastFocus) lastFocus.blur(); }
+  $("#btnCloseThanks").addEventListener("click", closeThanks);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeThanks(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) closeThanks(); });
+
+  // filter + wall
+  $("#wallFilter").innerHTML = '<button type="button" class="tab is-active" data-f="all">Semua</button>' + RX.variants.map(function (v) {
+    return '<button type="button" class="tab" style="--c:' + v.color + '" data-f="' + v.slug + '"><i class="dot"></i>' + esc(v.name) + '</button>';
+  }).join("");
+  $("#wallFilter").addEventListener("click", function (e) {
+    var b = e.target.closest(".tab"); if (!b) return; filter = b.dataset.f;
+    $$(".tab", this).forEach(function (t) { t.classList.toggle("is-active", t === b); }); render();
+  });
+
+  var cache = [];
+  function render() {
+    RXStories.list().then(function (all) {
+      cache = all;
+      var shown = all.filter(function (s) { return (filter === "all" || s.variant === filter) && s.consent !== false; });
+      $("#wall").innerHTML = shown.length ? shown.map(RXStories.card).join("") : '<div class="empty" style="column-span:all">Belum ada cerita untuk varian ini. <a class="link-arrow" href="#tulis">Jadi yang pertama!</a></div>';
+      var st = RXStories.stats(all);
+      $("#stTotal").textContent = st.isSample ? all.length : st.total;
+      $("#stTotal").nextElementSibling.textContent = st.isSample ? "Cerita contoh" : "Cerita masuk";
+      $("#stAvg").textContent = st.avg.toFixed(1);
+      $("#stAgain").textContent = Math.round(st.again) + "%";
+      $("#stFav").textContent = st.fav ? st.fav.name : "—";
+      $("#stFav").style.fontSize = "1.4rem";
+      $("#barAvg").style.width = (st.avg / 5 * 100) + "%";
+      $("#barAgain").style.width = st.again + "%";
+      $("#statsNote").textContent = st.isSample ? "Belum ada cerita asli — angka di bawah dari contoh tampilan." : "Dihitung otomatis dari " + st.total + " cerita yang masuk.";
+    });
+  }
+  render();
+
+  if (new URLSearchParams(location.search).get("admin") === "1") $("#btnExport").hidden = false;
+  $("#btnExport").addEventListener("click", function () {
+    var csv = RXStories.toCSV(cache);
+    if (csv.split("\n").length < 2) { h.toast("Belum ada cerita asli untuk diunduh."); return; }
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" }));
+    a.download = "cerita-radixava.csv"; a.click();
+  });
+});
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

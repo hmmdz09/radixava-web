@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kerja Sama — Radixava</title>
+  <meta name="description" content="Kerja sama dengan Radixava: reseller, titip jual (konsinyasi), event & bazar, pemasok onggok, media, dan kolaborasi riset.">
+  <meta name="theme-color" content="#1E4A22">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,100,1;1,9..144,500..800,100,1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="kerjasama">
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Kerja Sama</span></nav>
+      <span class="eyebrow">Tumbuh Bersama</span>
+      <h1>Ayo <em class="hl">berkolaborasi</em> untuk bumi</h1>
+      <p class="lead">Dari reseller mahasiswa sampai pabrik tapioka — setiap mitra memperbesar dampak sirkular Radixava.</p>
+      <div class="hero-actions"><a class="btn" href="#ajukan">Ajukan Kerja Sama</a><a class="btn btn--ghost" href="#reseller">Info Reseller</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div class="reveal"><span class="eyebrow">Bentuk Kerja Sama</span><h2>Pilih peran yang paling cocok</h2></div></div>
+      <div class="grid grid-3" id="partnerGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section--green" id="reseller">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Program Reseller</span>
+        <h2>Jualan camilan, <em class="hl" style="color:var(--gold);background:none">sambil jaga bumi</em></h2>
+        <p class="lead">Cocok untuk mahasiswa, UMKM, dan toko camilan. Harga khusus berdasarkan volume dan pendampingan dari tim.</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Harga grosir bertingkat sesuai jumlah pembelian</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Materi promosi: foto produk, caption & konten edukasi</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>Titip jual dengan akad <i>Wakalah bil Ujrah</i> & komisi transparan</span></li>
+        </ul>
+      </div>
+      <div class="grid reveal" data-d="2" style="gap:14px">
+        <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#E9F1DE"><h3 style="color:#fff">1. Isi form</h3><p style="margin:0;opacity:.8">Ceritakan siapa kamu dan rencana penjualanmu.</p></div>
+        <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#E9F1DE"><h3 style="color:#fff">2. Diskusi dengan tim</h3><p style="margin:0;opacity:.8">Kami hubungi untuk menyepakati harga & jumlah.</p></div>
+        <div class="card" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#E9F1DE"><h3 style="color:#fff">3. Mulai jualan</h3><p style="margin:0;opacity:.8">Produk dikirim, kamu siap berjualan!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" id="ajukan">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Ajukan Kerja Sama</span>
+        <h2>Ceritakan idemu</h2>
+        <p class="lead">Isi form singkat ini. Pesanmu akan otomatis tersusun rapi dan dikirim ke WhatsApp/Email tim Radixava.</p>
+        <div class="contact-list" data-contacts style="margin-top:20px"></div>
+      </div>
+      <form class="form-card reveal" data-d="1" id="partnerForm" novalidate>
+        <div class="field"><label for="pType">Jenis kerja sama</label><select class="select" id="pType" required></select></div>
+        <div class="row-2">
+          <div class="field"><label for="pName">Nama</label><input class="input" id="pName" required autocomplete="name"></div>
+          <div class="field"><label for="pOrg">Instansi / usaha <span class="opt">(opsional)</span></label><input class="input" id="pOrg" autocomplete="organization"></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="pCity">Kota</label><input class="input" id="pCity"></div>
+          <div class="field"><label for="pContact">No. WA / Email</label><input class="input" id="pContact" required></div>
+        </div>
+        <div class="field"><label for="pMsg">Pesan</label><textarea class="textarea" id="pMsg" placeholder="cth. Saya pengelola kantin FPMIPA, tertarik titip jual 2 varian…" required></textarea></div>
+        <span class="err" id="pErr">Lengkapi nama, kontak, dan pesan dulu ya.</span>
+        <div class="form-nav" style="flex-wrap:wrap">
+          <button type="submit" class="btn" data-via="wa">Kirim via WhatsApp</button>
+          <button type="button" class="btn btn--ghost" id="pMail">Kirim via Email</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script>
+window.RXpage = (window.RXpage || []).concat(function (h) {
+  var I = h.I;
+  var P = [
+    { t: "Reseller", i: I.users, c: "#2F6B2F", d: "Jual kembali Tri-Crunch dengan harga khusus.", l: ["Mahasiswa & komunitas", "Harga grosir bertingkat", "Materi promosi siap pakai"] },
+    { t: "Titip Jual (Konsinyasi)", i: I.store, c: "#B8732A", d: "Untuk kantin, kafe, koperasi, warung & toko oleh-oleh.", l: ["Akad Wakalah bil Ujrah", "Komisi transparan", "Restock terjadwal"] },
+    { t: "Event & Bazar", i: I.mega, c: "#7A2A8C", d: "Ajak Radixava ke bazar kampus, pop-up, atau acara komunitas.", l: ["Booth & tester rasa", "Edukasi sirkular", "Sponsor produk"] },
+    { t: "Pemasok Onggok", i: I.factory, c: "#6B3A20", d: "Pabrik tapioka yang ingin limbahnya bernilai.", l: ["Penyerapan onggok rutin", "Pencatatan per batch", "Dampak lingkungan terukur"] },
+    { t: "Media & Kreator", i: I.camera, c: "#E8761A", d: "Kolaborasi konten kuliner & gaya hidup berkelanjutan.", l: ["Review produk", "Konten edukasi", "Giveaway"] },
+    { t: "Riset & Institusi", i: I.flask, c: "#2E7D3E", d: "Kampus, lab, inkubator, dan program pendanaan UMKM.", l: ["Uji formulasi & masa simpan", "Pendampingan usaha", "Hibah & pendanaan"] }
+  ];
+  h.$("#partnerGrid").innerHTML = P.map(function (p, i) {
+    return '<article class="card partner-card reveal" data-d="' + (i % 3) + '" style="--c:' + p.c + '"><div class="ico">' + p.i + '</div><h3>' + p.t + '</h3><p class="muted" style="margin:0">' + p.d + '</p><ul>' + p.l.map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul><p style="margin:16px 0 0"><a class="link-arrow" style="color:' + p.c + '" href="#ajukan" data-type="' + p.t + '">Ajukan ' + I.arrow + '</a></p></article>';
+  }).join("");
+  h.$("#pType").innerHTML = P.map(function (p) { return "<option>" + p.t + "</option>"; }).join("") + "<option>Lainnya</option>";
+  document.addEventListener("click", function (e) { var a = e.target.closest("[data-type]"); if (a) h.$("#pType").value = a.dataset.type; });
+
+  function build() {
+    var n = h.$("#pName").value.trim(), c = h.$("#pContact").value.trim(), m = h.$("#pMsg").value.trim();
+    var ok = n && c && m; h.$("#pErr").classList.toggle("show", !ok); if (!ok) return null;
+    return "Halo Tim Radixava! Saya ingin mengajukan kerja sama.\n\n" +
+      "Jenis: " + h.$("#pType").value + "\nNama: " + n + "\nInstansi/usaha: " + (h.$("#pOrg").value.trim() || "-") +
+      "\nKota: " + (h.$("#pCity").value.trim() || "-") + "\nKontak: " + c + "\n\nPesan:\n" + m;
+  }
+  h.$("#partnerForm").addEventListener("submit", function (e) {
+    e.preventDefault(); var msg = build(); if (!msg) return;
+    var url = h.L.wa(msg);
+    if (url) window.open(url, "_blank", "noopener");
+    else if (navigator.clipboard) navigator.clipboard.writeText(msg).then(function () { h.toast("WhatsApp belum diatur. Pesan disalin — kirim via DM Instagram @" + h.C.instagram); });
+    else h.toast("WhatsApp belum diatur. Hubungi kami via Instagram @" + h.C.instagram);
+  });
+  h.$("#pMail").addEventListener("click", function () {
+    var msg = build(); if (!msg) return;
+    var url = h.L.mail("Pengajuan Kerja Sama — " + h.$("#pType").value, msg);
+    if (url) location.href = url; else h.toast("Email resmi sedang disiapkan. Coba via WhatsApp/Instagram dulu ya.");
+  });
+});
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
